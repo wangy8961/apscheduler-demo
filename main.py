@@ -22,7 +22,7 @@ if __name__ == '__main__':
     }
 
     job_defaults = {
-        'coalesce': False,  # 积攒的任务只跑一次
+        'coalesce': True,  # 错过执行时间后的同一任务，原本需要被排队执行多次，但现在只执行一次
         'max_instances': 1,  # 同一任务只支持同时运行一个实例
         'misfire_grace_time': 3600  # 3600 秒的任务超时容错
     }
