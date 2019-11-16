@@ -6,12 +6,13 @@ from threading import current_thread
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.executors.pool import ThreadPoolExecutor, ProcessPoolExecutor
 
-from log import logger
+from logger import logger
 
 
 def job():
+    """耗时 30 秒的函数"""
     logger.info('job thread_id-{0}, process_id-{1}'.format(current_thread(), os.getpid()))
-    time.sleep(3)
+    time.sleep(30)
 
 
 if __name__ == '__main__':
@@ -29,6 +30,7 @@ if __name__ == '__main__':
     scheduler = BackgroundScheduler(executors=executors, job_defaults=job_defaults, timezone='Asia/shanghai')
 
     for i in range(1000):
+        # 调度 1000 个任务，每个任务都是间隔 5 秒执行一次 job 函数（耗时 30 秒）
         scheduler.add_job(job, 'interval', name='3_second_job_{}'.format(i), seconds=5)
 
     scheduler.start()

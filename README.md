@@ -1,4 +1,4 @@
-```
-pip install apscheduler coloredlogs
+```bash
+# pip install apscheduler coloredlogs
 ```
 
