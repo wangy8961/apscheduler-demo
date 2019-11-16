@@ -1,0 +1,14 @@
+# PyCharm IDEA
+.idea/
+
+# Python Cache files
+__pycache__/
+
+# Python virtual environment
+venv/
+
+# Environment file
+.env
+
+# Unit test / coverage reports
+tmp/
